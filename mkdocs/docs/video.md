@@ -1,0 +1,3 @@
+# video, as the clip page gives it
+
+<video src="https://clips.version.cam/versioncam/versioncam/01-create-a-shipment?format=mp4" poster="https://clips.version.cam/versioncam/versioncam/01-create-a-shipment?format=poster" controls playsinline></video>

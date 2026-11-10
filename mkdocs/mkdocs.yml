@@ -1,0 +1,21 @@
+# An MkDocs Material site with one page per version.cam snippet, to see
+# which of them play. Served under /versioncam-embeds/mkdocs/ on GitHub Pages.
+site_name: versioncam embed test
+site_url: https://petbul.github.io/versioncam-embeds/mkdocs/
+theme:
+  name: material
+  features:
+    - navigation.instant
+markdown_extensions:
+  - attr_list
+  - md_in_html
+nav:
+  - index.md
+  - iframe.md
+  - video.md
+  - element-inline.md
+  - element.md
+  - markdown.md
+extra_javascript:
+  - path: https://clips.version.cam/embed.js
+    type: module

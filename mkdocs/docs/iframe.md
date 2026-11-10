@@ -1,0 +1,3 @@
+# iframe, as the clip page gives it
+
+<iframe src="https://clips.version.cam/versioncam/versioncam/01-create-a-shipment/embed" style="width:100%;aspect-ratio:1280/800;border:0" allow="fullscreen" loading="lazy" title="Create a shipment"></iframe>

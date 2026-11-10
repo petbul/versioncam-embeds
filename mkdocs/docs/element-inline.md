@@ -1,0 +1,4 @@
+# element, as the clip page gives it
+
+<script type="module" src="https://clips.version.cam/embed.js"></script>
+<version-cam src="https://clips.version.cam/versioncam/versioncam/01-create-a-shipment"></version-cam>

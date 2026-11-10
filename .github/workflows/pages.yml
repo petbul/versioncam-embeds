@@ -1,0 +1,53 @@
+# Builds the three test sites and publishes them together on GitHub Pages,
+# at petbul.github.io/versioncam-embeds/<site>/.
+name: Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Docusaurus
+        working-directory: docusaurus
+        run: |
+          npm ci
+          BASE_URL=/versioncam-embeds/docusaurus/ npx docusaurus build --out-dir ../_site/docusaurus
+      - name: MkDocs Material
+        working-directory: mkdocs
+        run: |
+          pip install -r requirements.txt
+          mkdocs build -d ../_site/mkdocs
+      - name: Starlight
+        working-directory: starlight
+        run: |
+          npm ci
+          BASE_URL=/versioncam-embeds/starlight npx astro build --outDir ../_site/starlight
+      - run: cp index.html _site/
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
