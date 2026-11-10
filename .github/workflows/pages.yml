@@ -38,7 +38,7 @@ jobs:
         run: |
           npm ci
           BASE_URL=/versioncam-embeds/starlight npx astro build --outDir ../_site/starlight
-      - run: cp index.html _site/
+      - run: cp index.html gitbook-resize.html _site/
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: _site

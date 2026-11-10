@@ -1,0 +1,21 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitBook resize test</title>
+<!-- Framed by the version.cam GitBook integration's spike: asks GitBook to
+     give the frame a phone clip's shape (390/844) and shows the frame's size
+     before and after, so a screenshot answers whether published GitBook pages
+     honour @webframe.resize. -->
+<body style="margin:0;font:20px system-ui;background:#e8eefc;color:#123">
+<p id="out" style="padding:16px"></p>
+<script>
+  const out = document.getElementById("out");
+  const show = (state) => { out.textContent = innerWidth + " x " + innerHeight + ", " + state; };
+  show("before");
+  addEventListener("resize", () => show("after the resize"));
+  parent.postMessage({ action: { action: "@webframe.ready" } }, "*");
+  setTimeout(() => {
+    parent.postMessage({ action: { action: "@webframe.resize", aspectRatio: 390 / 844 } }, "*");
+    if (!out.textContent.includes("after")) show("resize asked");
+  }, 1500);
+</script>
