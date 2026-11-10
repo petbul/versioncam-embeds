@@ -1,0 +1,7 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "versioncam embed test",
+  "colors": { "primary": "#16A34A" },
+  "navigation": { "pages": ["index", "iframe-html", "iframe-jsx", "video", "element", "markdown"] }
+}

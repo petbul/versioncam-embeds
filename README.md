@@ -5,6 +5,7 @@ This repository checks which of [version.cam](https://version.cam)'s embed snipp
 - [Docusaurus 3](https://petbul.github.io/versioncam-embeds/docusaurus/)
 - [MkDocs Material](https://petbul.github.io/versioncam-embeds/mkdocs/)
 - [Starlight](https://petbul.github.io/versioncam-embeds/starlight/)
+- Mintlify, in `mintlify/`: run `npx mint dev` there, or deploy that folder on Mintlify
 
 This README is the test for a GitHub README. Below are the snippets as version.cam gives them, so you can see which ones GitHub keeps.
 
