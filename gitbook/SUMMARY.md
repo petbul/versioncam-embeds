@@ -1,4 +1,4 @@
 # Table of contents
 
 * [version.cam in GitBook](README.md)
-* [Resize test](resize.md)
+* [Create a shipment](create-a-shipment.md)
